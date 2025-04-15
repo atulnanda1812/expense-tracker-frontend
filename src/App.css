@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('./assets/background.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ Main container */
+.app-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Aligns title on left and login on right */
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+}
+
+/* ✅ Left Section - Title */
+.title-section {
+  flex: 1; /* Takes up left side */
+  text-align: left;
+}
+
+.tagline {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* ✅ Right Section - Login */
+.login-section {
+  flex: 1; /* Takes up right side */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.login-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.google-login-button {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+  border: none;
+}
+
+.google-login-button:hover {
+  background-color: #f0f0f0;
+}
+
+.gmail-logo {
+  width: 30px;
+  margin-right: 10px;
+}
+
+
+/* ✅ Logout button */
+.dashboard {
+  text-align: center;
+}
+
+.logout-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 15px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.logout-button:hover {
+  background-color: darkred;
+}

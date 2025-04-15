@@ -1,0 +1,1 @@
+web: gunicorn expense_tracking_app.wsgi

@@ -1,0 +1,132 @@
+/* Ensure Selection Screen Uses Correct Background */
+.selection-screen {
+  height: 100vh;
+  width: 100vw;
+  background-size: 100% 100%; /* Forces background to stretch */
+  background-image: url('../assets/background-selection.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ Remove Black Box (Fixes the Issue) */
+.selection-container {
+    padding: 30px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    color: white;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;  /* ✅ Fix: Removed black background */
+}
+
+/* ✅ Fix Checkbox Styling */
+.service-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+}
+
+.service-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px; /* Space between checkboxes */
+    font-size: 18px;
+    background: none; /* ✅ Removed rounded white background */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* ✅ Fix Input Fields */
+.date-selection {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.date-selection label {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.date-selection input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid white;
+  background: transparent; /* ✅ Fix: Remove the white box background */
+  color: white;
+}
+
+/* ✅ Fix Button Styling */
+.proceed-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+}
+
+.proceed-button:hover {
+    background-color: #0056b3;
+}
+
+.progress-bar-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #f3f3f3;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+}
+
+.progress-bar::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background-color: #007bff;
+    animation: progress-animation 1.5s infinite linear;
+}
+
+@keyframes progress-animation {
+    0% { left: -30%; }
+    100% { left: 100%; }
+}
+
+
+/* ✅ Fix Logout Button */
+.logout-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}

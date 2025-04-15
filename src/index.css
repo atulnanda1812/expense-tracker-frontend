@@ -1,0 +1,27 @@
+/* Basic reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1c1c1c, #3a3a3a);
+  color: #ffffff;
+}
+
+
+/* Root element styling */
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Example App container styling */
+.app-container {
+  max-width: 800px;
+  padding: 20px;
+  border: 1px solid #333;
+  background-color: #1e1e1e; /* Slightly lighter dark background for contrast */
+  border-radius: 10px;
+}

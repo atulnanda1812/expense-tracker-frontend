@@ -1,0 +1,78 @@
+/* Apply the same background as the selection screen */
+.result-screen {
+    background-image: url("../assets/background-selection.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding-top: 60px; /* Prevents overlap with logo */
+}
+
+/* Title */
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* Logout Button */
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: darkred;
+}
+
+/* Download Section */
+.download-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 60%; /* Adjusting width */
+    max-width: 800px;
+}
+
+/* Each Download Item */
+.download-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Icons */
+.icon {
+    width: 50px;
+    height: 50px;
+}
+
+/* Download Links */
+.download-link {
+    font-size: 18px;
+    color: #4da6ff;
+    text-decoration: none;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
