@@ -20,6 +20,7 @@ const App = () => {
                 console.log("✅ Token found, validating...");
                 await validateToken(token);
             } else if (location.pathname.startsWith("/oauth2callback")) {
+                console.log("🔍 REACT_APP_REDIRECT_URI =", process.env.REACT_APP_REDIRECT_URI);
                 console.log("🔄 Handling OAuth callback...");
                 await handleOAuthCallback();
             } else {
@@ -100,6 +101,8 @@ const App = () => {
         const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&access_type=offline&prompt=consent`;
         window.location.href = authUrl;
     };
+ 
+
 
     const handleLogout = () => {
         sessionStorage.clear();
