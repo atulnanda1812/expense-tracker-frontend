@@ -125,6 +125,7 @@ const App = () => {
                 </div>
             ) : null}
             <Routes>
+                <Route path="/oauth2callback" element={<div>Authorizing...</div>} />
                 <Route path="/select" element={<SelectionScreen />} />
                 <Route path="/results" element={<ResultScreen />} />
             </Routes>
