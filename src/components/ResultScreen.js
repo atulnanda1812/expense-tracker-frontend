@@ -59,7 +59,7 @@ const ResultScreen = () => {
             <div>
               <h2>Expense Report</h2>
               <a 
-                href={`${backendUrl}/media/${expenseReport.path}`} ... />
+                href={`${backendUrl}/media/${expenseReport.path}`}
                 className="download-link" 
                 download
               >
