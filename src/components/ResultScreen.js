@@ -20,7 +20,10 @@ const ResultScreen = () => {
 
     const fetchFiles = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/fetch_files/", {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+        const response = await axios.get(`${backendUrl}/api/fetch_files/`, {
+
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
         });
@@ -56,7 +59,7 @@ const ResultScreen = () => {
             <div>
               <h2>Expense Report</h2>
               <a 
-                href={`http://127.0.0.1:8000/media/${expenseReport.path}`} 
+                href={`${backendUrl}/media/${expenseReport.path}`} ... />
                 className="download-link" 
                 download
               >
@@ -72,7 +75,7 @@ const ResultScreen = () => {
             <div>
               <h2>All Invoices (ZIP)</h2>
               <a 
-                href={`http://127.0.0.1:8000/media/${invoicesZip.path}`} 
+                href={`${backendUrl}/media/${invoicesZip.path}`} 
                 className="download-link" 
                 download
               >
