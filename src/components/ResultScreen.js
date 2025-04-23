@@ -10,6 +10,7 @@ const ResultScreen = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const token = location.state?.token;
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     if (!token) {
@@ -20,7 +21,7 @@ const ResultScreen = () => {
 
     const fetchFiles = async () => {
       try {
-        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+       
 
         const response = await axios.get(`${backendUrl}/api/fetch_files/`, {
 
