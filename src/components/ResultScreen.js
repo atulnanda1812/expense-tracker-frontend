@@ -45,7 +45,7 @@ const ResultScreen = () => {
     sessionStorage.removeItem("accessToken");
     navigate("/");
   };
-
+//correct syntax
   return (
     <div className="result-screen">
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
