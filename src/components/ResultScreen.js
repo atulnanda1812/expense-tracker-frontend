@@ -51,22 +51,27 @@ const ResultScreen = () => {
       <h1 className="title">Expense Report & Attachments</h1>
 
       <div className="download-section">
-        {expenseReport && (
-          <div className="download-item">
-            <img src={excelIcon} alt="Excel Icon" className="icon" />
-            <div>
-              <h2>Expense Report</h2>
-              <a
-                href={expenseReport.url}
-                className="download-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                📥 Download {expenseReport.name}
-              </a>
-            </div>
-          </div>
-        )}
+       {expenseSheetUrl && (
+         <div style={{ marginTop: '20px' }}>
+           <p>✅ Expense report generated successfully!</p>
+           <a
+             href={expenseSheetUrl}
+             target="_blank"
+             rel="noopener noreferrer"
+             style={{
+               display: 'inline-block',
+               padding: '10px 20px',
+               backgroundColor: '#4CAF50',
+               color: 'white',
+               textDecoration: 'none',
+               borderRadius: '5px',
+               fontWeight: 'bold'
+             }}
+           >
+             📥 Download Expense Report
+           </a>
+         </div>
+       )}
 
         {invoicesZip && (
           <div className="download-item">
