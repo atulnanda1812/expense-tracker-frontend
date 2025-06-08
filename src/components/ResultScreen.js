@@ -43,6 +43,7 @@ const ResultScreen = () => {
     sessionStorage.removeItem("accessToken");
     navigate("/");
   };
+  const expenseSheetUrl = expenseReport?.url;
 
   return (
     <div className="result-screen">
