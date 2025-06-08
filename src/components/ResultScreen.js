@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./ResultScreen.css"; 
-import excelIcon from "../assets/excel-icon.png"; // Excel icon
-import pdfIcon from "../assets/pdf-icon.png"; // PDF icon
+import "./ResultScreen.css";
+import excelIcon from "../assets/excel-icon.png";
+import pdfIcon from "../assets/pdf-icon.png";
 
 const ResultScreen = () => {
   const [files, setFiles] = useState([]);
@@ -21,10 +21,7 @@ const ResultScreen = () => {
 
     const fetchFiles = async () => {
       try {
-       
-
         const response = await axios.get(`${backendUrl}/api/fetch_files/`, {
-
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
         });
@@ -38,9 +35,9 @@ const ResultScreen = () => {
     fetchFiles();
   }, [token, navigate]);
 
-  // Find required files
+  // Find files with relevant suffixes or S3 keys
   const expenseReport = files.find(file => file.name.endsWith(".xlsx"));
-  const invoicesZip = files.find(file => file.name === "invoices.zip");
+  const invoicesZip = files.find(file => file.name.endsWith(".zip"));
 
   const handleLogout = () => {
     sessionStorage.removeItem("accessToken");
@@ -52,17 +49,18 @@ const ResultScreen = () => {
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
 
       <h1 className="title">Expense Report & Attachments</h1>
-      
+
       <div className="download-section">
         {expenseReport && (
           <div className="download-item">
             <img src={excelIcon} alt="Excel Icon" className="icon" />
             <div>
               <h2>Expense Report</h2>
-              <a 
-                href={`${backendUrl}/media/${expenseReport.path}`}
-                className="download-link" 
-                download
+              <a
+                href={expenseReport.url}
+                className="download-link"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 📥 Download {expenseReport.name}
               </a>
@@ -72,13 +70,14 @@ const ResultScreen = () => {
 
         {invoicesZip && (
           <div className="download-item">
-            <img src={pdfIcon} alt="PDF Icon" className="icon" />
+            <img src={pdfIcon} alt="ZIP Icon" className="icon" />
             <div>
               <h2>All Invoices (ZIP)</h2>
-              <a 
-                href={`${backendUrl}/media/${invoicesZip.path}`} 
-                className="download-link" 
-                download
+              <a
+                href={invoicesZip.url}
+                className="download-link"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 📥 Download All Invoices
               </a>
@@ -86,7 +85,9 @@ const ResultScreen = () => {
           </div>
         )}
 
-        {!expenseReport && !invoicesZip && <p>No files available for download.</p>}
+        {!expenseReport && !invoicesZip && (
+          <p>No files available for download.</p>
+        )}
       </div>
     </div>
   );
